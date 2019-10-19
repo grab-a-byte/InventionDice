@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InventionDice.Data;
+using InventionDice.Infrastructure;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,7 +17,10 @@ namespace InventionDice
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            var pathHelper = new FileSystemPathHelper();
+            var migrator = new LocalDatabaseMigrator(pathHelper);
+
+            migrator.Upgrade();
         }
 
         protected override void OnSleep()
