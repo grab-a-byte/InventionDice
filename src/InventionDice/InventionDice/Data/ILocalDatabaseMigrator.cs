@@ -1,6 +1,6 @@
 ﻿namespace InventionDice.Data
 {
-    internal interface ILocalDatabaseMigrator
+    public interface ILocalDatabaseMigrator
     {
         bool Upgrade();
     }
