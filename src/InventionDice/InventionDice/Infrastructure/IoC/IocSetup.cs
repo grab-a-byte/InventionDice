@@ -1,6 +1,7 @@
 ﻿using System;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using InventionDice.Services.Navigation;
 
 namespace InventionDice.Infrastructure.IoC
 {
@@ -20,6 +21,8 @@ namespace InventionDice.Infrastructure.IoC
                 .AddClasses()
                 .AsImplementedInterfaces()
                 .WithTransientLifetime());
+
+            ServiceCollection.AddSingleton((serviceProvider) => new ViewModelFactory(serviceProvider.GetService));
 
             ServiceCollection.AddMediatR(typeof(App).Assembly);
         }
