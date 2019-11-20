@@ -1,6 +1,6 @@
 ﻿namespace InventionDice.Infrastructure
 {
-    internal interface IFileSystemPathHelper
+    public interface IFileSystemPathHelper
     {
         string GetAppDataFilePath(string filename);
     }

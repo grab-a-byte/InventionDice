@@ -1,26 +1,25 @@
-﻿using InventionDice.Data;
-using InventionDice.Infrastructure;
-using System;
+﻿using InventionDice.AppFiles.Startup;
+using InventionDice.Infrastructure.IoC;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace InventionDice
 {
     public partial class App : Application
     {
+        private readonly IocSetup iocSetup;
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            iocSetup = new IocSetup();
         }
 
         protected override void OnStart()
         {
-            var pathHelper = new FileSystemPathHelper();
-            var migrator = new LocalDatabaseMigrator(pathHelper);
-
-            migrator.Upgrade();
+            iocSetup.Setup();
+            var provider = iocSetup.GetProvider();
+            provider.GetService<IMediator>().Send(new StartupRequest());
         }
 
         protected override void OnSleep()

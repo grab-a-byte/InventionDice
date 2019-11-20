@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace InventionDice.Data
 {
-    internal class LocalDatabaseMigrator : ILocalDatabaseMigrator
+    public class LocalDatabaseMigrator : ILocalDatabaseMigrator
     {
         private readonly IFileSystemPathHelper pathHelper;
 
