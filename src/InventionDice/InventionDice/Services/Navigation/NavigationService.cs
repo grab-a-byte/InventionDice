@@ -33,5 +33,14 @@ namespace InventionDice.Services.Navigation
             page.BindingContext = viewModel;
             await pageService.PushAsync(page);
         }
+
+        public void NavigateAsRoot<TViewModel>() where TViewModel : ViewModelBase
+        {
+            var viewType = viewViewModelMappings.GetViewType<TViewModel>();
+            var view = Activator.CreateInstance(viewType);
+            var page = view as Page;
+            page.BindingContext = viewModelFactory.GetViewModel<TViewModel>();
+            pageService.PushAsRoot(page);
+        }
     }
 }

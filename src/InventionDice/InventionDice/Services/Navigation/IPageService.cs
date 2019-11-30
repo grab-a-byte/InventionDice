@@ -7,6 +7,7 @@ namespace InventionDice.Services.Navigation
     {
         Page CurrentPage { get; }
         Page Main { get; }
+        void PushAsRoot(Page page);
         Task PushAsync(Page page);
         Task<Page> PopAsync();
     }

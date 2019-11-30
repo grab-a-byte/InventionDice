@@ -19,7 +19,7 @@ namespace InventionDice.AppFiles.Startup
         }
         public Task<StartupResponse> Handle(StartupRequest request, CancellationToken cancellationToken)
         {
-            this.navigationService.NavigateTo<MainViewModel>();
+            this.navigationService.NavigateAsRoot<MainViewModel>();
             localDatabaseMigrator.Upgrade();
             return Task.FromResult(new StartupResponse());
         }

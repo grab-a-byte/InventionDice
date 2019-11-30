@@ -9,10 +9,11 @@ namespace InventionDice.Services.Navigation
         public Page CurrentPage => Navigation.NavigationStack.LastOrDefault();
         public Page Main => Application.Current.MainPage ?? (Application.Current.MainPage = new NavigationPage(new ContentPage()));
 
-        public async Task PushAsync(Page page)
-        {
+        public void PushAsRoot(Page page) =>
+            Application.Current.MainPage = new NavigationPage(page);
+
+        public async Task PushAsync(Page page) =>
             await Navigation.PushAsync(page);
-        }
 
         public async Task<Page> PopAsync()
             => await Navigation.PopAsync();
