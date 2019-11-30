@@ -2,5 +2,10 @@
 {
     public class ViewModelBase
     {
+        public virtual void Initialise()
+        {
+        }
+
+        public bool IsBusy { get; set; }
     }
 }

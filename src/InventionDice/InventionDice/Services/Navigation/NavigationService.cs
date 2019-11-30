@@ -16,22 +16,22 @@ namespace InventionDice.Services.Navigation
             this.viewModelFactory = viewModelFactory;
             this.pageService = pageService;
         }
-        public void NavigateTo<TViewModel>() where TViewModel : ViewModelBase
+        public async void NavigateTo<TViewModel>() where TViewModel : ViewModelBase
         {
             var viewType = viewViewModelMappings.GetViewType<TViewModel>();
             var view = Activator.CreateInstance(viewType);
             var page = view as Page;
             page.BindingContext = viewModelFactory.GetViewModel<TViewModel>();
-            pageService.PushAsync(page);
+            await pageService.PushAsync(page);
         }
 
-        public void NavigateTo<TViewModel>(TViewModel viewModel) where TViewModel : ViewModelBase
+        public async void NavigateTo<TViewModel>(TViewModel viewModel) where TViewModel : ViewModelBase
         {
             var viewType = viewViewModelMappings.GetViewType<TViewModel>();
             var view = Activator.CreateInstance(viewType);
             var page = view as Page;
             page.BindingContext = viewModel;
-            pageService.PushAsync(page);
+            await pageService.PushAsync(page);
         }
     }
 }
