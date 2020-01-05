@@ -1,4 +1,5 @@
 ﻿using System;
+using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using InventionDice.Services.Navigation;
@@ -23,8 +24,8 @@ namespace InventionDice.Infrastructure.IoC
                 .WithTransientLifetime());
 
             ServiceCollection.AddSingleton((serviceProvider) => new ViewModelFactory(serviceProvider.GetService));
-
             ServiceCollection.AddMediatR(typeof(App).Assembly);
+            ServiceCollection.AddAutoMapper(typeof(App).Assembly);
         }
 
         public IServiceProvider GetProvider() => ServiceCollection.BuildServiceProvider();

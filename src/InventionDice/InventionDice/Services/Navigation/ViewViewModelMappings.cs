@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using InventionDice.ViewModels;
-using InventionDice.Views;
+using InventionDice.Views.Main;
 
 namespace InventionDice.Services.Navigation
 {

@@ -10,7 +10,7 @@ namespace InventionDice.Services.Navigation
         public Page Main => Application.Current.MainPage ?? (Application.Current.MainPage = new NavigationPage(new ContentPage()));
 
         public void PushAsRoot(Page page) =>
-            Application.Current.MainPage = new NavigationPage(page);
+            Application.Current.MainPage = page;
 
         public async Task PushAsync(Page page) =>
             await Navigation.PushAsync(page);

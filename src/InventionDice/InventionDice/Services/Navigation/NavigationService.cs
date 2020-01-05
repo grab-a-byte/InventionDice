@@ -21,8 +21,10 @@ namespace InventionDice.Services.Navigation
             var viewType = viewViewModelMappings.GetViewType<TViewModel>();
             var view = Activator.CreateInstance(viewType);
             var page = view as Page;
-            page.BindingContext = viewModelFactory.GetViewModel<TViewModel>();
+            var viewModel = viewModelFactory.GetViewModel<TViewModel>();
+            page.BindingContext = viewModel;
             await pageService.PushAsync(page);
+            viewModel.Initialise();
         }
 
         public async void NavigateTo<TViewModel>(TViewModel viewModel) where TViewModel : ViewModelBase

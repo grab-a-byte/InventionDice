@@ -10,5 +10,16 @@ namespace InventionDice.ViewModels
         {
             this.navigationService = navigationService;
         }
+
+        public override void Initialise()
+        {
+            IsBusy = true;
+
+            IsBusy = false;
+        }
+
+        public DiceListViewModel DiceList { get; set; }
+
+        public DiceSetListViewModel DiceSetList { get; set; }
     }
 }
