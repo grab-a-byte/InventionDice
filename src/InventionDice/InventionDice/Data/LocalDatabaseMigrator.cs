@@ -1,4 +1,5 @@
-﻿using DbUp;
+﻿using System;
+using DbUp;
 using DbUp.Engine;
 using InventionDice.Infrastructure;
 using System.Reflection;
@@ -16,6 +17,8 @@ namespace InventionDice.Data
 
         public bool Upgrade()
         {
+            Console.WriteLine(GetConnectionString());
+
             UpgradeEngine upgrader = DeployChanges
                 .To
                 .SQLiteDatabase(GetConnectionString())

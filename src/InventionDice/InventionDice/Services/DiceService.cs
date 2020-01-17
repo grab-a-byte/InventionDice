@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using InventionDice.Data;
+using InventionDice.Data.Models;
 using InventionDice.ViewModels;
 
 namespace InventionDice.Services
@@ -18,13 +20,8 @@ namespace InventionDice.Services
         }
         public IEnumerable<DiceViewModel> GetDiceList()
         {
-            var dice = context.Dice.ToList();
+            List<Dice> dice = context.Dice.ToList();
             return mapper.Map<IEnumerable<DiceViewModel>>(dice);
         }
-    }
-
-    public interface IDiceService
-    {
-        IEnumerable<DiceViewModel> GetDiceList();
     }
 }
