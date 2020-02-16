@@ -14,8 +14,14 @@ namespace InventionDice.Data
         }
 
         public DbSet<Dice> Dice { get; set; }
-        //public DbSet<DiceSet> DiceSets { get; set; }
 
+        public DbSet<DiceSet> DiceSets { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.ApplyConfigurationsFromAssembly(typeof(AppDatabaseContext).Assembly);
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite($"Data Source={this.pathHelper.GetAppDataFilePath(ApplicationConstants.DatabaseName)}");
     }

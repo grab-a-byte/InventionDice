@@ -6,11 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Data\Migrations\InitialMigration.sql" />
+    <None Remove="Data\Migrations\2020-01-01_InitialMigration.sql" />
+    <None Remove="Data\Migrations\2020-01-23_AddDiceSet.sql" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Data\Migrations\InitialMigration.sql" />
+    <EmbeddedResource Include="Data\Migrations\2020-01-23_AddDiceSet.sql" />
+    <EmbeddedResource Include="Data\Migrations\2020-01-01_InitialMigration.sql" />
   </ItemGroup>
 
   <ItemGroup>

@@ -20,6 +20,9 @@ namespace InventionDice.ViewModels
             IsBusy = true;
 
             IEnumerable<DiceViewModel> dice = diceService.GetDiceList();
+            DiceList = new DiceListViewModel(dice);
+
+
 
             IsBusy = false;
         }

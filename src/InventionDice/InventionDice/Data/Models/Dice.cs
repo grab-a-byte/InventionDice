@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using System.Collections.Generic;
 
 namespace InventionDice.Data.Models
 {
@@ -6,5 +6,7 @@ namespace InventionDice.Data.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public IEnumerable<DiceDiceSet> DiceDiceSets { get; set; }
     }
 }
