@@ -7,6 +7,8 @@ namespace InventionDice.Data.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
+        public IEnumerable<DiceValue> DiceValues { get; set; }
+
         public IEnumerable<DiceDiceSet> DiceDiceSets { get; set; }
     }
 }

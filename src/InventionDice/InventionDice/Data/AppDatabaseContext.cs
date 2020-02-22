@@ -14,8 +14,8 @@ namespace InventionDice.Data
         }
 
         public DbSet<Dice> Dice { get; set; }
-
         public DbSet<DiceSet> DiceSets { get; set; }
+        public DbSet<DiceValue> DiceValues { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

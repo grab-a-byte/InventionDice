@@ -8,11 +8,17 @@ namespace InventionDice.ViewModels
     {
         private readonly INavigationService navigationService;
         private readonly IDiceService diceService;
+        private readonly IDiceSetService diceSetService;
 
-        public MainViewModel(INavigationService navigationService, IDiceService diceService)
+        public MainViewModel(
+            INavigationService navigationService,
+            IDiceService diceService,
+            IDiceSetService diceSetService
+            )
         {
             this.navigationService = navigationService;
             this.diceService = diceService;
+            this.diceSetService = diceSetService;
         }
 
         public override void Initialise()
@@ -20,9 +26,10 @@ namespace InventionDice.ViewModels
             IsBusy = true;
 
             IEnumerable<DiceViewModel> dice = diceService.GetDiceList();
-            DiceList = new DiceListViewModel(dice);
+            DiceList = new DiceListViewModel(dice, navigationService);
 
-
+            IEnumerable<DiceSetViewModel> sets = diceSetService.GetDiceSets();
+            DiceSetList =  new DiceSetListViewModel(sets);
 
             IsBusy = false;
         }

@@ -9,6 +9,8 @@ namespace InventionDice.Data.ModelConfigurations
         public void Configure(EntityTypeBuilder<Dice> builder)
         {
             builder.HasKey(x => x.Id);
+            builder.HasMany(x => x.DiceValues)
+                .WithOne(x => x.Dice);
         }
     }
 }
