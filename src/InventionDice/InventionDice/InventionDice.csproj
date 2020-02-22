@@ -6,14 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Data\Migrations\InitialMigration.sql" />
+    <None Remove="Data\Migrations\2020-01-01_InitialMigration.sql" />
+    <None Remove="Data\Migrations\2020-01-23_AddDiceSet.sql" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Data\Migrations\InitialMigration.sql" />
+    <EmbeddedResource Include="Data\Migrations\2020-01-23_AddDiceSet.sql" />
+    <EmbeddedResource Include="Data\Migrations\2020-01-01_InitialMigration.sql" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="dbup-sqlite" Version="4.2.0" />
     <PackageReference Include="MediatR" Version="7.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
@@ -23,5 +27,23 @@
     <PackageReference Include="sqlite-net" Version="1.6.292" />
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.991211" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Main\DiceListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Main\DiceSetListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Views\Main\DiceListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Main\DiceSetListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 </Project>

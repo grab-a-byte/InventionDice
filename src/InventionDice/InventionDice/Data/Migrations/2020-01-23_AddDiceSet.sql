@@ -1,0 +1,14 @@
+CREATE TABLE DiceSets
+(
+	 [Id] INTEGER PRIMARY KEY
+	,[Name] NVARCHAR(MAX) NOT NULL
+);
+
+CREATE TABLE DiceDiceSet
+(
+	 [Id] INTEGER PRIMARY KEY
+	,[DiceId] INTEGER NOT NULL
+	,[DiceSetId] INTEGER NOT NULL
+	,CONSTRAINT [FK_Dice_DiceDiceSet] FOREIGN KEY([DiceId]) REFERENCES [Dice]([Id])
+	,CONSTRAINT [FK_DiceSet_DiceDiceSet] FOREIGN KEY([DiceSetId]) REFERENCES [DiceSets]([Id])
+);

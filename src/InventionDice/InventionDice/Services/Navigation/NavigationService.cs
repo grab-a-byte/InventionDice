@@ -18,18 +18,20 @@ namespace InventionDice.Services.Navigation
         }
         public async void NavigateTo<TViewModel>() where TViewModel : ViewModelBase
         {
-            var viewType = viewViewModelMappings.GetViewType<TViewModel>();
-            var view = Activator.CreateInstance(viewType);
-            var page = view as Page;
-            page.BindingContext = viewModelFactory.GetViewModel<TViewModel>();
+            Type viewType = viewViewModelMappings.GetViewType<TViewModel>();
+            object view = Activator.CreateInstance(viewType);
+            Page page = view as Page;
+            TViewModel viewModel = viewModelFactory.GetViewModel<TViewModel>();
+            page.BindingContext = viewModel;
             await pageService.PushAsync(page);
+            viewModel.Initialise();
         }
 
         public async void NavigateTo<TViewModel>(TViewModel viewModel) where TViewModel : ViewModelBase
         {
-            var viewType = viewViewModelMappings.GetViewType<TViewModel>();
-            var view = Activator.CreateInstance(viewType);
-            var page = view as Page;
+            Type viewType = viewViewModelMappings.GetViewType<TViewModel>();
+            object view = Activator.CreateInstance(viewType);
+            Page page = view as Page;
             page.BindingContext = viewModel;
             await pageService.PushAsync(page);
         }
@@ -39,8 +41,10 @@ namespace InventionDice.Services.Navigation
             var viewType = viewViewModelMappings.GetViewType<TViewModel>();
             var view = Activator.CreateInstance(viewType);
             var page = view as Page;
-            page.BindingContext = viewModelFactory.GetViewModel<TViewModel>();
+            TViewModel viewModel = viewModelFactory.GetViewModel<TViewModel>();
+            page.BindingContext = viewModel;
             pageService.PushAsRoot(page);
+            viewModel.Initialise();
         }
     }
 }
