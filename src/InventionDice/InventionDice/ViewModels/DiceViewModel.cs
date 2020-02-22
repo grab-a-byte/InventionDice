@@ -1,6 +1,6 @@
 ﻿namespace InventionDice.ViewModels
 {
-    public class DiceViewModel
+    public class DiceViewModel : ViewModelBase
     {
         public DiceViewModel(int id, string name)
         {

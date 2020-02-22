@@ -7,6 +7,6 @@
              xmlns:mainViews ="clr-namespace:InventionDice.Views.Main;assembly=InventionDice"
              x:Class="InventionDice.Views.Main.MainPage">
 
-    <mainViews:DiceListPage></mainViews:DiceListPage>
-    <mainViews:DiceSetListPage></mainViews:DiceSetListPage>
+    <mainViews:DiceListPage BindingContext="{Binding DiceList}"></mainViews:DiceListPage>
+    <mainViews:DiceSetListPage BindingContext="{Binding DiceSetList}"></mainViews:DiceSetListPage>
 </TabbedPage>

@@ -9,6 +9,8 @@ namespace InventionDice.ViewModels
         private readonly INavigationService navigationService;
         private readonly IDiceService diceService;
         private readonly IDiceSetService diceSetService;
+        private DiceListViewModel diceList;
+        private DiceSetListViewModel diceSetList;
 
         public MainViewModel(
             INavigationService navigationService,
@@ -34,8 +36,24 @@ namespace InventionDice.ViewModels
             IsBusy = false;
         }
 
-        public DiceListViewModel DiceList { get; set; }
+        public DiceListViewModel DiceList
+        {
+            get => diceList;
+            set
+            {
+                diceList = value;
+                NotifyPropertyChanged();
+            }
+        }
 
-        public DiceSetListViewModel DiceSetList { get; set; }
+        public DiceSetListViewModel DiceSetList
+        {
+            get => diceSetList;
+            set
+            {
+                diceSetList = value; 
+                NotifyPropertyChanged();
+            }
+        }
     }
 }

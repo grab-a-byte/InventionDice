@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace InventionDice.ViewModels
 {
-    public class DiceSetListViewModel
+    public class DiceSetListViewModel : ViewModelBase
     {
         public DiceSetListViewModel(IEnumerable<DiceSetViewModel> sets)
         {
