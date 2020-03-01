@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:mainViews ="clr-namespace:InventionDice.Views.Main;assembly=InventionDice"
-             x:Class="InventionDice.Views.Main.MainPage">
+             x:Class="InventionDice.Views.Main.MainPage"
+             Title="Invention Dice">
 
     <mainViews:DiceListPage BindingContext="{Binding DiceList}"></mainViews:DiceListPage>
     <mainViews:DiceSetListPage BindingContext="{Binding DiceSetList}"></mainViews:DiceSetListPage>

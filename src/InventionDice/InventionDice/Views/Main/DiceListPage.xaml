@@ -8,10 +8,11 @@
              Title="Dice">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Dice list page!"
+            <Button Text="Add new Dice"
+                Command="{Binding NavigateToAddDicePage}"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand" />
-            <CollectionView ItemsSource="{Binding DiceList}" IsVisible="{Binding DiceListIsEmpty}" SelectionMode="Single" SelectionChangedCommand="{Binding NavigateToAddDicePage}" SelectedItem="{Binding SelectedDice}">
+            <CollectionView ItemsSource="{Binding DiceList}" IsVisible="{Binding DiceListIsEmpty}" SelectionMode="Single" SelectedItem="{Binding SelectedDice}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Vertical" Padding="10">

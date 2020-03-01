@@ -41,9 +41,10 @@ namespace InventionDice.Services.Navigation
             var viewType = viewViewModelMappings.GetViewType<TViewModel>();
             var view = Activator.CreateInstance(viewType);
             var page = view as Page;
+            var navPage = new NavigationPage(page);
             TViewModel viewModel = viewModelFactory.GetViewModel<TViewModel>();
             page.BindingContext = viewModel;
-            pageService.PushAsRoot(page);
+            pageService.PushAsRoot(navPage);
             viewModel.Initialise();
         }
     }
