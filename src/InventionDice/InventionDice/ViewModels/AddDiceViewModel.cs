@@ -1,6 +1,6 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.ObjectModel;
-using MediatR;
 using Xamarin.Forms;
 
 namespace InventionDice.ViewModels
@@ -14,6 +14,7 @@ namespace InventionDice.ViewModels
         {
             this.mediator = mediator;
             AddDiceValueCommand = new Command(AddDiceValue);
+            DiceValues = new ObservableCollection<string>();
         }
 
         public ObservableCollection<string> DiceValues
@@ -21,7 +22,18 @@ namespace InventionDice.ViewModels
             get => diceValues;
             set
             {
-                diceValues = value; 
+                diceValues = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private string _inputValue = "";
+
+        public string InputValue
+        {
+            get => _inputValue; set
+            {
+                _inputValue = value;
                 NotifyPropertyChanged();
             }
         }
@@ -30,7 +42,8 @@ namespace InventionDice.ViewModels
 
         private void AddDiceValue()
         {
-            Console.WriteLine("hit this");
+            DiceValues.Add(InputValue);
+            InputValue = "";
         }
     }
 }

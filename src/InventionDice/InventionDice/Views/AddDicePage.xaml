@@ -10,7 +10,7 @@
         <StackLayout Padding="10">
             <Label Text="Dice Name"
                    HorizontalOptions="CenterAndExpand"/>
-            <Entry Placeholder="Enter Dice Name">
+            <Entry Placeholder="Enter Dice Name" Text="{Binding InputValue}">
                 <Entry.Behaviors>
                     <behaviours:EventToCommandBehavior EventName="Unfocused" Command="{Binding AddDiceValueCommand}" Converter="{StaticResource EntryCompleteConverter}"/>
                 </Entry.Behaviors>
