@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using InventionDice.ViewModels;
+using InventionDice.Views;
 using InventionDice.Views.Main;
 
 namespace InventionDice.Services.Navigation
@@ -13,6 +14,7 @@ namespace InventionDice.Services.Navigation
         public ViewViewModelMappings()
         {
             mappings.Add(new ViewViewModelMapping(typeof(MainPage), typeof(MainViewModel)));
+            mappings.Add(new ViewViewModelMapping(typeof(AddDicePage), typeof(AddDiceViewModel)));
         }
 
         public Type GetViewType<TViewModel>() where TViewModel : ViewModelBase

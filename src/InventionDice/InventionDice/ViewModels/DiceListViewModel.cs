@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using InventionDice.Services.Navigation;
@@ -7,7 +6,7 @@ using Xamarin.Forms;
 
 namespace InventionDice.ViewModels
 {
-    public class DiceListViewModel
+    public class DiceListViewModel : ViewModelBase
     {
         private readonly INavigationService navigationService;
 
@@ -27,8 +26,7 @@ namespace InventionDice.ViewModels
 
         private void NavigateToAddDice()
         {
-            Console.WriteLine("TODO:- Navigate To Add Dice Page");
-            //navigationService.NavigateTo<>();
+            navigationService.NavigateTo<AddDiceViewModel>();
         }
     }
 }

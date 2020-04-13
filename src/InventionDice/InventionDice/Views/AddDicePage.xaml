@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:behaviours="clr-namespace:InventionDice.Infrastructure.Behaviours;assembly=InventionDice"
+             x:Class="InventionDice.Views.AddDicePage">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Dice Name"
+                   HorizontalOptions="CenterAndExpand"/>
+            <Entry Text="{Binding DiceName}" Placeholder="Please Enter Dice Name"/>
+            <BoxView HeightRequest="1" Color="#00000" />
+            <Label Text="Dice Values" HorizontalOptions="CenterAndExpand"/>
+            <Entry Placeholder="Enter Dice Value" Text="{Binding InputValue}">
+                <Entry.Behaviors>
+                    <behaviours:EventToCommandBehavior EventName="Unfocused" Command="{Binding AddDiceValueCommand}" Converter="{StaticResource EntryCompleteConverter}"/>
+                </Entry.Behaviors>
+            </Entry>
+            <CollectionView ItemsSource="{Binding DiceValues}"></CollectionView>
+            <BoxView HeightRequest="1" Color="#00000" />
+            <Button Text="Save Dice" Command="{Binding SaveDiceCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
