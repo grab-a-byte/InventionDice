@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using InventionDice.ViewModels;
 using Xamarin.Forms;
 
@@ -46,6 +47,10 @@ namespace InventionDice.Services.Navigation
             page.BindingContext = viewModel;
             pageService.PushAsRoot(navPage);
             viewModel.Initialise();
+        }
+        public async Task PopAsync()
+        {
+            await pageService.PopAsync();
         }
     }
 }
